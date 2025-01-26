@@ -175,77 +175,6 @@ const updateMousePosition = (event) => {
 </script>
 
 <style>
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  max-width: 100%;
-  min-height: 100vh;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: #ccc;
-}
-
-.container {
-  max-width: 1230px;
-  width: 100%;
-  padding-inline: 15px;
-  margin: 0 auto;
-}
-
-button {
-  padding: 0.5rem 1rem 0.5rem 1rem;
-
-  border-radius: 5px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-
-  font-size: 1rem;
-  color: #fff;
-  background-color: #0077ff;
-
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #0052cc;
-}
-
-h1 {
-  text-align: center;
-}
-
-h3 {
-  text-align: left;
-  align-self: flex-start;
-
-  background: rgba(255, 255, 255, 0.6);
-  padding: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
-  /* user-select: none; */
-}
-
-.img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-.app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .controls {
   padding: 1rem;
   display: flex;
@@ -290,5 +219,15 @@ h3 {
   background: rgba(255, 255, 255, 0.8);
   padding: 0.5rem;
   border-bottom-left-radius: 0.5rem;
+}
+
+polygon {
+  cursor: move;
+
+  &:hover {
+    stroke: #000;
+    stroke-width: 2px;
+    /* fill: #ccc; */
+  }
 }
 </style>

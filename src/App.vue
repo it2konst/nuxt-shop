@@ -17,6 +17,7 @@
             :fill="polygon.color"
             @mousedown="startDrag(polygon, 'buffer')"
             @mouseup="stopDrag"
+            @dblclick="deletePolygon(polygon, 'buffer')"
           />
         </svg>
       </div>
@@ -49,6 +50,7 @@
             :fill="polygon.color"
             @mousedown="startDrag(polygon, 'work')"
             @mouseup="stopDrag"
+            @dblclick="deletePolygon(polygon, 'work')"
           />
         </svg>
         <grid-lines></grid-lines>
@@ -130,6 +132,7 @@ const scaleWorkZone = (event) => {
 
 // Перетаскивание
 const startDrag = (polygon, from) => {
+  if (draggedPolygon) return; // Если уже перетаскивается полигон, игнорируем
   draggedPolygon = polygon;
   draggedFrom = from;
 };
@@ -141,11 +144,20 @@ const stopDrag = () => {
 
 const onDrop = (to) => {
   if (draggedPolygon && draggedFrom !== to) {
+    // Удаляем полигон из исходной зоны
     if (draggedFrom === "buffer") {
-      bufferPolygons.splice(bufferPolygons.indexOf(draggedPolygon), 1);
+      const index = bufferPolygons.findIndex((p) => p.id === draggedPolygon.id);
+      if (index !== -1) {
+        bufferPolygons.splice(index, 1);
+      }
     } else {
-      workPolygons.splice(workPolygons.indexOf(draggedPolygon), 1);
+      const index = workPolygons.findIndex((p) => p.id === draggedPolygon.id);
+      if (index !== -1) {
+        workPolygons.splice(index, 1);
+      }
     }
+
+    // Добавляем полигон в целевую зону
     if (to === "buffer") {
       bufferPolygons.push(draggedPolygon);
     } else {
@@ -171,6 +183,21 @@ const updateMousePosition = (event) => {
   }
   mouseX.value = event.clientX;
   mouseY.value = event.clientY;
+};
+
+// Метод для удаления полигона
+const deletePolygon = (polygon, zone) => {
+  if (zone === "buffer") {
+    const index = bufferPolygons.findIndex((p) => p.id === polygon.id);
+    if (index !== -1) {
+      bufferPolygons.splice(index, 1);
+    }
+  } else if (zone === "work") {
+    const index = workPolygons.findIndex((p) => p.id === polygon.id);
+    if (index !== -1) {
+      workPolygons.splice(index, 1);
+    }
+  }
 };
 </script>
 
@@ -205,6 +232,7 @@ const updateMousePosition = (event) => {
   height: 300px;
 
   border: 1px solid #ddd;
+  overflow: hidden;
 }
 
 .svg-container {

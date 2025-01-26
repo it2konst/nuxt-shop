@@ -12,4 +12,13 @@ module.exports = defineConfig({
       }),
     ],
   },
+
+  // Добавляем настройку для автоматического импорта SCSS
+  // css: {
+  //   loaderOptions: {
+  //     scss: {
+  //       additionalData: `@import "@/assets/styles/main.scss";`,
+  //     },
+  //   },
+  // },
 });

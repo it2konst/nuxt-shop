@@ -202,7 +202,7 @@ body {
 }
 
 button {
-  padding: 1rem 2rem 1rem 2rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
 
   border-radius: 5px;
   border: none;
@@ -224,6 +224,15 @@ h1 {
   text-align: center;
 }
 
+h3 {
+  text-align: left;
+  align-self: flex-start;
+
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
 .img {
   display: block;
   max-width: 100%;
@@ -239,9 +248,10 @@ h1 {
 .controls {
   padding: 1rem;
   display: flex;
+  /* flex-wrap: wrap; */
   align-items: center;
-  /* justify-content: flex-start; */
   justify-content: center;
+  /* justify-content: flex-start; */
   gap: 1rem;
 }
 
@@ -275,9 +285,9 @@ h1 {
 .scale {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   background: rgba(255, 255, 255, 0.8);
   padding: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
 }
 </style>

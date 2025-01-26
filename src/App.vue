@@ -1,5 +1,6 @@
 <template>
-  <div class="app">
+  <div class="main container">
+    <h1>Polygon application</h1>
     <div class="controls">
       <button @click="createPolygons">Создать</button>
       <button @click="savePolygons">Сохранить</button>
@@ -41,46 +42,6 @@
             transform: `scale(${scale}) translate(${panX}px, ${panY}px)`,
           }"
         >
-          <g class="grid">
-            <line
-              v-for="n in 20"
-              :key="'x' + n"
-              :x1="n * 50"
-              :y1="0"
-              :x2="n * 50"
-              :y2="1000"
-              stroke="lightgray"
-            />
-            <line
-              v-for="n in 20"
-              :key="'y' + n"
-              :x1="0"
-              :y1="n * 50"
-              :x2="1000"
-              :y2="n * 50"
-              stroke="lightgray"
-            />
-            <text
-              v-for="n in 20"
-              :key="'xlabel' + n"
-              :x="n * 50"
-              :y="10"
-              fill="gray"
-              font-size="10"
-            >
-              {{ n * 50 }}
-            </text>
-            <text
-              v-for="n in 20"
-              :key="'ylabel' + n"
-              :x="10"
-              :y="n * 50"
-              fill="gray"
-              font-size="10"
-            >
-              {{ n * 50 }}
-            </text>
-          </g>
           <polygon
             v-for="polygon in workPolygons"
             :key="polygon.id"
@@ -90,6 +51,7 @@
             @mouseup="stopDrag"
           />
         </svg>
+        <grid-lines></grid-lines>
       </div>
     </div>
   </div>
@@ -97,11 +59,13 @@
 
 <script setup>
 import { reactive, ref, onMounted } from "vue";
+import GridLines from "./components/GridLines.vue";
+import { useScale } from "./composables/useScale";
 
 // Состояние приложения
 const bufferPolygons = reactive([]);
 const workPolygons = reactive([]);
-const scale = ref(1);
+const { scale } = useScale();
 const mouseX = ref(0);
 const mouseY = ref(0);
 const panX = ref(0);
@@ -176,24 +140,24 @@ const stopDrag = () => {
 };
 
 const onDrop = (to) => {
-  if (draggedPolygon) {
-    if (draggedFrom === "buffer" && to === "work") {
-      workPolygons.push(draggedPolygon);
+  if (draggedPolygon && draggedFrom !== to) {
+    if (draggedFrom === "buffer") {
       bufferPolygons.splice(bufferPolygons.indexOf(draggedPolygon), 1);
-    } else if (draggedFrom === "work" && to === "buffer") {
-      bufferPolygons.push(draggedPolygon);
+    } else {
       workPolygons.splice(workPolygons.indexOf(draggedPolygon), 1);
     }
-    draggedPolygon = null;
-    draggedFrom = null;
+    if (to === "buffer") {
+      bufferPolygons.push(draggedPolygon);
+    } else {
+      workPolygons.push(draggedPolygon);
+    }
   }
+  stopDrag();
 };
 
-// Прокрутка (панорамирование)
-const startPan = (event) => {
-  if (event.button === 0) {
-    isPanning = true;
-  }
+// Панорамирование
+const startPan = () => {
+  isPanning = true;
 };
 
 const stopPan = () => {
@@ -201,76 +165,119 @@ const stopPan = () => {
 };
 
 const updateMousePosition = (event) => {
-  mouseX.value = event.offsetX;
-  mouseY.value = event.offsetY;
   if (isPanning) {
     panX.value += event.movementX;
     panY.value += event.movementY;
   }
+  mouseX.value = event.clientX;
+  mouseY.value = event.clientY;
 };
 </script>
 
 <style>
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  max-width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #ccc;
 }
 
+.container {
+  max-width: 1230px;
+  width: 100%;
+  padding-inline: 15px;
+  margin: 0 auto;
+}
+
+button {
+  padding: 1rem 2rem 1rem 2rem;
+
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  font-size: 1rem;
+  color: #fff;
+  background-color: #0077ff;
+
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0052cc;
+}
+
+h1 {
+  text-align: center;
+}
+
+.img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 .app {
-  font-family: Arial, sans-serif;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .controls {
-  margin-bottom: 20px;
-}
-
-.controls button {
-  margin-right: 10px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  /* justify-content: flex-start; */
+  justify-content: center;
+  gap: 1rem;
 }
 
 .zones {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  max-width: 100%;
+  width: 100%;
 }
 
 .buffer-zone,
 .work-zone {
-  border: 1px solid #999;
-  padding: 10px;
-  flex: 1;
-  /* min-height: 300px; */
   position: relative;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 0 auto;
+  max-width: 100%;
+  width: 100%;
+  height: 300px;
+
+  border: 1px solid #ddd;
 }
 
 .svg-container {
-  /* position: absolute; */
-  /* z-index: -1; */
   width: 100%;
   height: 100%;
-  cursor: pointer;
-}
-
-.polygon {
-  cursor: grab;
 }
 
 .scale {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0;
+  left: 0;
   background: rgba(255, 255, 255, 0.8);
-  padding: 5px;
-  border-radius: 5px;
-}
-
-.grid line {
-  stroke: lightgray;
-  stroke-width: 0.5;
-}
-
-.grid text {
-  user-select: none;
+  padding: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 }
 </style>

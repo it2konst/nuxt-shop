@@ -8,7 +8,7 @@
     </div>
     <div class="zones">
       <div class="buffer-zone">
-        <h3>Буферная зона</h3>
+        <h3 draggable="false">Буферная зона</h3>
         <svg class="svg-container" @drop="onDrop('buffer')" @dragover.prevent>
           <polygon
             v-for="polygon in bufferPolygons"
@@ -30,7 +30,7 @@
         @mouseup="stopPan"
         @mouseleave="stopPan"
       >
-        <h3>Рабочая зона</h3>
+        <h3 draggable="false">Рабочая зона</h3>
         <div class="scale">
           <span>Масштаб: {{ scale.toFixed(2) }}</span>
           <span>X: {{ mouseX }}</span>
@@ -231,6 +231,7 @@ h3 {
   background: rgba(255, 255, 255, 0.6);
   padding: 0.5rem;
   border-bottom-right-radius: 0.5rem;
+  /* user-select: none; */
 }
 
 .img {

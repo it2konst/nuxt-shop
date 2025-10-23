@@ -3,8 +3,7 @@ import "~/assets/styles/main.css"
 </script>
 
 <template>
-  <div>
-    Привет!
+  <NuxtLayout>
     <NuxtPage />
-  </div>
+  </NuxtLayout>
 </template>

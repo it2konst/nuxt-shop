@@ -3,11 +3,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
 
-  icon: {
+	icon: {
 		customCollections: [
 			{
 				prefix: "icons",
-				dir: "./assets/icons",
+				dir: './app/assets/icons',
 			}
 		]
 	},

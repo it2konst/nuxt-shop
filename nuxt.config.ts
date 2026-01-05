@@ -20,6 +20,20 @@ export default defineNuxtConfig({
 			'postcss-nested': {},
 		}
 	},
+	app: {
+		head: {
+			title: 'Магазин Shoppe',
+			titleTemplate: '%s | Shoppe',
+			htmlAttrs: {
+				lang: 'ru'
+			},
+			link: [
+				{ rel: 'icon', type: 'image/png', href: '/favicon-32x32.png' },
+				{ rel: 'manifest', crossorigin: "anonymous", href: '/manifest.webmanifest' },
+				{ rel: "stylesheet", href: "/normalize.css" }
+			],
+		}
+	},	
 	icon: {
 		customCollections: [
 			{

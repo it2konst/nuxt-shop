@@ -15,6 +15,11 @@ export default defineNuxtConfig({
 			imageurl: ""
 		}
 	},
+	postcss: {
+		plugins: {
+			'postcss-nested': {},
+		}
+	},
 	icon: {
 		customCollections: [
 			{

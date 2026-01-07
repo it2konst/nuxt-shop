@@ -1,0 +1,24 @@
+{
+  "categories": [
+    {
+      "id": 4,
+      "name": "Браслеты",
+      "alias": "bracelets"
+    },
+    {
+      "id": 2,
+      "name": "Кольца",
+      "alias": "rings"
+    },
+    {
+      "id": 3,
+      "name": "Ожерелья",
+      "alias": "necklaces"
+    },
+    {
+      "id": 1,
+      "name": "Серьги",
+      "alias": "earrings"
+    }
+  ]
+}

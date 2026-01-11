@@ -1,0 +1,179 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Lira Earrings",
+      "price": 20,
+      "short_description": "Элегантные золотистые серьги-кольца",
+      "long_description": "Отлично подойдут к любому гардеробу. Чистое золото высокой пробы, которое не оставит вас равнодушными к качеству изделия.",
+      "sku": "12",
+      "discount": 0,
+      "images": [
+        "/images/jewelry/lira1.jpg",
+        "/images/jewelry/lira2.jpg",
+        "/images/jewelry/lira3.jpg",
+        "/images/jewelry/lira4.jpg"
+      ],
+      "category_id": 1,
+      "category": {
+        "id": 1,
+        "name": "Серьги",
+        "alias": "earrings"
+      },
+      "created_at": "2026-01-11T13:15:19Z",
+      "updated_at": "2026-01-11T13:15:19Z"
+    },
+    {
+      "id": 2,
+      "name": "Stella Diamond Ring",
+      "price": 1200,
+      "short_description": "Обручальное кольцо с бриллиантом",
+      "long_description": "Изысканное кольцо из белого золота 585 пробы с центральным бриллиантом весом 0.5 карата. Идеально для предложения руки и сердца.",
+      "sku": "RING-STELLA-001",
+      "discount": 10,
+      "images": [
+        "/images/jewelry/stella1.jpg",
+        "/images/jewelry/stella2.jpg"
+      ],
+      "category_id": 2,
+      "category": {
+        "id": 2,
+        "name": "Кольца",
+        "alias": "rings"
+      },
+      "created_at": "2026-01-11T13:15:19Z",
+      "updated_at": "2026-01-11T13:15:19Z"
+    },
+    {
+      "id": 3,
+      "name": "Moonlight Necklace",
+      "price": 450,
+      "short_description": "Изящное ожерелье с лунным камнем",
+      "long_description": "Утонченное ожерелье из серебра 925 пробы с натуральным лунным камнем. Подчеркнет вашу женственность и загадочность.",
+      "sku": "NECK-MOON-001",
+      "discount": 15,
+      "images": [
+        "/images/jewelry/moonlight1.jpg",
+        "/images/jewelry/moonlight2.jpg",
+        "/images/jewelry/moonlight3.jpg"
+      ],
+      "category_id": 3,
+      "category": {
+        "id": 3,
+        "name": "Ожерелья",
+        "alias": "necklaces"
+      },
+      "created_at": "2026-01-11T13:15:19Z",
+      "updated_at": "2026-01-11T13:15:19Z"
+    },
+    {
+      "id": 4,
+      "name": "Rose Gold Bracelet",
+      "price": 680,
+      "short_description": "Браслет из розового золота",
+      "long_description": "Элегантный браслет из розового золота 750 пробы с тонким плетением. Идеальное дополнение к вечернему образу.",
+      "sku": "BRACE-ROSE-001",
+      "discount": 0,
+      "images": [
+        "/images/jewelry/rosegold1.jpg"
+      ],
+      "category_id": 4,
+      "category": {
+        "id": 4,
+        "name": "Браслеты",
+        "alias": "bracelets"
+      },
+      "created_at": "2026-01-11T13:15:19Z",
+      "updated_at": "2026-01-11T13:15:19Z"
+    },
+    {
+      "id": 5,
+      "name": "Crystal Drop Earrings",
+      "price": 85,
+      "short_description": "Серьги-капли с кристаллами Swarovski",
+      "long_description": "Потрясающие серьги с кристаллами Swarovski в оправе из родированного серебра. Добавят блеска любому вечернему наряду.",
+      "sku": "EARR-CRYSTAL-001",
+      "discount": 20,
+      "images": [
+        "/images/jewelry/crystal1.jpg",
+        "/images/jewelry/crystal2.jpg"
+      ],
+      "category_id": 1,
+      "category": {
+        "id": 1,
+        "name": "Серьги",
+        "alias": "earrings"
+      },
+      "created_at": "2026-01-11T13:15:19Z",
+      "updated_at": "2026-01-11T13:15:19Z"
+    },
+    {
+      "id": 6,
+      "name": "Vintage Pearl Necklace",
+      "price": 320,
+      "short_description": "Винтажное жемчужное ожерелье",
+      "long_description": "Классическое ожерелье из натурального пресноводного жемчуга с позолоченной застежкой. Воплощение элегантности и изысканности.",
+      "sku": "NECK-PEARL-001",
+      "discount": 0,
+      "images": [
+        "/images/jewelry/pearl1.jpg",
+        "/images/jewelry/pearl2.jpg",
+        "/images/jewelry/pearl3.jpg"
+      ],
+      "category_id": 3,
+      "category": {
+        "id": 3,
+        "name": "Ожерелья",
+        "alias": "necklaces"
+      },
+      "created_at": "2026-01-11T13:15:19Z",
+      "updated_at": "2026-01-11T13:15:19Z"
+    },
+    {
+      "id": 7,
+      "name": "Infinity Ring Set",
+      "price": 150,
+      "short_description": "Набор колец 'Бесконечность'",
+      "long_description": "Стильный набор из трех колец разного размера с символом бесконечности. Выполнен из серебра 925 пробы с родиевым покрытием.",
+      "sku": "RING-INF-SET",
+      "discount": 25,
+      "images": [
+        "/images/jewelry/infinity1.jpg",
+        "/images/jewelry/infinity2.jpg"
+      ],
+      "category_id": 2,
+      "category": {
+        "id": 2,
+        "name": "Кольца",
+        "alias": "rings"
+      },
+      "created_at": "2026-01-11T13:15:19Z",
+      "updated_at": "2026-01-11T13:15:19Z"
+    },
+    {
+      "id": 8,
+      "name": "Charm Bracelet",
+      "price": 95,
+      "short_description": "Браслет с подвесками-шармами",
+      "long_description": "Игривый браслет из серебра с коллекцией миниатюрных подвесок: сердечко, звездочка, луна и солнце. Отличный подарок для молодых девушек.",
+      "sku": "BRACE-CHARM-001",
+      "discount": 0,
+      "images": [
+        "/images/jewelry/charm1.jpg",
+        "/images/jewelry/charm2.jpg",
+        "/images/jewelry/charm3.jpg"
+      ],
+      "category_id": 4,
+      "category": {
+        "id": 4,
+        "name": "Браслеты",
+        "alias": "bracelets"
+      },
+      "created_at": "2026-01-11T13:15:19Z",
+      "updated_at": "2026-01-11T13:15:19Z"
+    }
+  ],
+  "total": 8,
+  "limit": 20,
+  "offset": 0
+}

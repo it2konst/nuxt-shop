@@ -86,4 +86,44 @@
   align-self: flex-start;
   margin-top: 4px;
 }
+
+@media (max-width: 900px) {
+  .header {
+    margin-top: 24px;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .header__content {
+    width: 100%;
+    gap: 20px;
+    justify-content: space-between;
+  }
+
+  .header__menu {
+    gap: 18px;
+  }
+
+  .header__menu a,
+  .header__icons a {
+    padding-bottom: 18px;
+  }
+
+  .header__icons {
+    gap: 18px;
+  }
+
+  .header__hr {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .header__content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
 </style>

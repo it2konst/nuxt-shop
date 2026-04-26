@@ -3,9 +3,9 @@
     <hr />
     <div class="footer__top">
       <ul>
-        <li><NuxtLink to="#">Контакты</NuxtLink></li>
-        <li><NuxtLink to="#">Условия покупки</NuxtLink></li>
-        <li><NuxtLink to="#">Доставка и возврат</NuxtLink></li>
+        <li><NuxtLink to="/about">О проекте</NuxtLink></li>
+        <li><NuxtLink to="/catalog">Каталог</NuxtLink></li>
+        <li><NuxtLink to="/account">Аккаунт</NuxtLink></li>
       </ul>
       <div class="footer__form">
         <InputField
@@ -17,20 +17,17 @@
         </button>
       </div>
     </div>
-    <div class="footer__buttom">
+    <div class="footer__bottom">
       <div>© {{ new Date().getFullYear() }} Shoppe</div>
       <div class="footer__social">
-        <NuxtLink to="#">
-          <Icon name="icons:li" size="30px" />
+        <NuxtLink to="#" aria-label="Квадрат">
+          <Icon name="icons:shape-square" size="30px" />
         </NuxtLink>
-        <NuxtLink to="#">
-          <Icon name="icons:fb" size="30px" />
+        <NuxtLink to="#" aria-label="Круг">
+          <Icon name="icons:shape-circle" size="30px" />
         </NuxtLink>
-        <NuxtLink to="#">
-          <Icon name="icons:in" size="30px" />
-        </NuxtLink>
-        <NuxtLink to="#">
-          <Icon name="icons:tw" size="30px" />
+        <NuxtLink to="#" aria-label="Треугольник">
+          <Icon name="icons:shape-triangle" size="30px" />
         </NuxtLink>
       </div>
     </div>
@@ -61,6 +58,7 @@
   display: flex;
   padding: 0;
   gap: 30px;
+  flex-wrap: wrap;
 }
 
 .footer__top ul a {
@@ -71,13 +69,15 @@
   text-decoration: none;
 }
 
-.footer__top a:hover {
-  fill: red;
+.footer__top ul a:hover {
+  color: var(--color-black);
 }
 
-.footer__buttom {
+.footer__bottom {
   display: flex;
   justify-content: space-between;
+  gap: 16px;
+  align-items: center;
 }
 
 .footer__social {
@@ -87,10 +87,20 @@
 
 .footer__social a {
   color: var(--color-dark-gray);
+  border: 1px solid var(--color-gray);
+  border-radius: 999px;
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease;
 }
 
 .footer__social a:hover {
   color: var(--color-dark);
+  border-color: var(--color-black);
+  transform: translateY(-1px);
 }
 .footer__form {
   position: relative;
@@ -105,5 +115,35 @@
   top: 10px;
   background: none;
   border: none;
+}
+
+@media (max-width: 1024px) {
+  .footer__top {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer__form input {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    gap: 28px;
+  }
+
+  .footer__top ul {
+    gap: 14px;
+  }
+
+  .footer__top ul a {
+    font-size: 14px;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 </style>

@@ -201,12 +201,13 @@ watch(
 
 .catalog__content {
   width: 100%;
+  min-width: 0;
 }
 
 .catalog__grid {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 64px 12px;
 }
 
@@ -270,6 +271,13 @@ watch(
 
   .catalog__filter {
     width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .catalog__grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
 }
 </style>

@@ -74,6 +74,7 @@
 }
 
 .footer__bottom {
+  margin-bottom: 24px;
   display: flex;
   justify-content: space-between;
   gap: 16px;

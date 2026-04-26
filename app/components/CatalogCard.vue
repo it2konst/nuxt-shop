@@ -44,7 +44,7 @@ const isHovered = ref(false);
 .card__image {
   aspect-ratio: 1/1;
   width: 100%;
-  min-width: 320px;
+  min-width: 0;
   border-radius: 8px;
   padding: 16px;
   background-repeat: no-repeat;
